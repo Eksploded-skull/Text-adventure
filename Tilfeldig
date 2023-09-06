@@ -1,0 +1,22 @@
+
+
+import random
+
+tilfeldig_tall = random.randint(1, 10)
+
+print(tilfeldig_tall)
+
+ 
+gjett = int(input("Hvilket tall vil du gjette -"))
+
+if gjett == tilfeldig_tall: 
+    print("korrekt")
+else: print("feil")
+
+if gjett < tilfeldig_tall:
+    print("for lavt")
+    
+
+     
+if gjett > tilfeldig_tall:
+    print("for høyt")
