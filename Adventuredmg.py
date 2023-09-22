@@ -38,6 +38,12 @@ def sjekkshanker():
 def sjekktynnshanker():
     if TynnShanker <=0:
         chapter2_3T()
+def sjekkBigFyrmedbaseballbat():
+    if Big_Fyr_Baseball <=0:
+        chapter2_3T()
+def sjekkAverageCrowbar():
+    if AverageCrowbar <=0:
+        chapter2_3T()
 
 def velgchapter():
     chaptervelger = input("Velg chapter. 1 = Chapter 1. 2 = chapter 2 -")
@@ -310,13 +316,15 @@ def Søppla():
 def chapter2_1C():
     pass
 def chapter2_1_5A():
+    global TynnShankerFight, AverageCrowbarFight, BigFyrBaseballFight
     valg = input("Hvem vil du fighte? A: tynn man med shank. B: Big guy med baseball bat. C: Average dude med crowbar? ")
     if valg == "A":
         TynnShankerFight = True
-    if valg == "B":
-        AverageCrowbarFight = True
-
+        chapter2_2_5AF()
     if valg == "C":
+        AverageCrowbarFight = True
+        chapter2_2_5AF()
+    if valg == "B":
         BigFyrBaseballFight = True
         print("Du løper mot den tynne mannen. De tror han er nok til å ta deg alene. Så han fighter solo mens de andre ser på")
         chapter2_2_5AF()
@@ -327,6 +335,7 @@ def chapter2_2_5AF():
     global AverageCrowbar
     global Big_Fyr_Baseball
     global TynnShankerFight
+    global enemy_attack
 
 
     valg = input("A: Angrip B: Løp C:Dodge og counter attack D: Glock -")
@@ -374,15 +383,24 @@ def chapter2_2_5AF():
         elif tilfeldig_limb == 100:
             limb = "ballan"
             tilfeldig_attack *= 10
+        #forskjellige enemies gjør forskjellig damage
             
+        print("-Du ", Attack, "i", limb, "som ", Knekk,"-" )
+        print("du gjorde", tilfeldig_attack, "dmg")
         if TynnShankerFight == True:
             TynnShanker -= tilfeldig_attack
+            enemy_attack = random.randint(10, 30)
+        print("Shankeren har ", TynnShanker, "hp")
         if BigFyrBaseballFight == True:
             Big_Fyr_Baseball -= tilfeldig_attack
+            enemy_attack = random.randint(20, 40)
+            print("Baseballbat fyren har ", Big_Fyr_Baseball, "hp")
         if AverageCrowbarFight == True:
             AverageCrowbar -= tilfeldig_attack
+            enemy_attack = random.randint(20, 40)
+            print("Crowbar fyren har ", AverageCrowbar, "hp")
 
-        enemy_attack = random.randint(10, 30)
+        
 
         hp -= enemy_attack
         if tilfeldig_attack < 20:
@@ -398,29 +416,51 @@ def chapter2_2_5AF():
         elif tilfeldig_attack > 100:
             Knekk = "ble KNUST"
 
-        print("du gjorde", tilfeldig_attack, "dmg")
 
-        print("-Du ", Attack, "i", limb, "som ", Knekk,"-" )
 
         print("du har", hp, "hp" )
         sjekkliv()
-        print("Shankeren har ", TynnShanker, "hp")
         sjekktynnshanker()
+        sjekkBigFyrmedbaseballbat()
+        sjekkAverageCrowbar()
+    
         chapter2_2_5AF()
 def chapter2_3T():
     print("Du drepte Shankeren. De to andre står der i shock. Men snapper ut av det. Forvirrheten deres blir raskt om til sinne.")
     print("Han average fyren med crowbar tar opp en glock")
     valg = input("Hva gjør du? A: Dodge B: Finn cover C: Løp D:")
     if valg == "A":
-       random =  random.randint(1, 3)
-    if random == 3:
-        print("Du dodga")
+     print("Han holder pistolen mot deg. Han regnet med at du skulle snu rundt å løpe. Men du står der klar for å dukke unda rett før han skyter. Du prøver å lese bodylanguagen hans:")
+     print("Han legger fingeren sin på triggern. Han PRESSER INN")
+     valg = input("A: Dodge B: Stå i ro")
+     if valg == "A":
+        print("Du hiver deg på bakken. Men han skøyt ikke når du trodde han ville. Du prøver å røyse deg men... Du hører et høyt BANG. Du driver å svimer av. Du blir plukket opp og hivet i søppla der du blør ut")
+        hp = 0
+        sjekkliv()
+    if valg == "B":
+        chapter2_3_2T()
+def chapter2_3_2T():
+    print("Han har pistolen klar mot hjerte ditt. Han stryker avtrekkeren. The tension rises. BOOOOOOOOMMMMMM!!!")
+    valg = input("A: Dodge B: Stå i ro")
+    if valg == "A":
+        print("Du hiver deg på bakken. Men han skøyt ikke når du trodde han ville. Du prøver å røyse deg men... Du hører et høyt BANG. Du driver å svimer av. Du blir plukket opp og hivet i søppla der du blør ut")
+        hp = 0
+        sjekkliv()
+    if valg == "B":
+        print("Igjen han skøyt ikke")
+        chapter2_3_3T()
+def chapter2_3_2T():
+print
+
+
 
     #print("De begge løper mot deg. Hva gjør du?")
     #valg = input("A: Løp! B: Angrip C: ")
 
-        
-
+def chapter2_3A():
+    pass
+def chapter2_3B():
+    pass
 
 
         
