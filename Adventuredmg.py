@@ -21,6 +21,7 @@ AverageCrowbarFight = False
 Gunfight = False
 Sun_Tzu_The_Art_Of_War_2 = False
 rage = 0
+chapter_2 = False
 Asking = False
 def game_over():
     print("Du døde")
@@ -50,11 +51,11 @@ def sjekkAverageCrowbar():
         chapter2_3A()
 
 def velgchapter():
-    asking = True
-    while asking == True:
+    poteting = True
+    while poteting == True:
         chaptervelger = input("Velg chapter. 1 = Chapter 1. 2 = chapter 2 -")
         if chaptervelger == "A" or chaptervelger == "B":
-            asking = False
+            poteting = False
         else:
             print(" Du skrev feil. Prøv igjen")
     if chaptervelger == "1" or chaptervelger == "A":
@@ -73,8 +74,9 @@ def rom_1():
     print("Du er i en stor sjukk by. Den hete London. Du e på vei til butikken.\
 Det e kveld og du ser en fyr med svart hetegenser i en dark alleyway som signaliserer at\
 du burde følge etter han du har 3 valg:")
-                 
-    valg = input(" A: Du kan gå videre. B: Du kan følge etter han C: Du kan ta opp glocken og blaste han i hode -")
+    asking = True
+    while asking == True:
+     valg = input(" A: Du kan gå videre. B: Du kan følge etter han C: Du kan ta opp glocken og blaste han i hode -")
     if valg == "A":
         print("Lame")
         exit()
@@ -218,10 +220,15 @@ def rom_shank2():
 def rom_shank_løp():
     global hp
     global Glock
+    global chapter_2
+
     sjekkliv()
     valg = input("Hva vil du gjøre, A: løpe tilbake, B: leite i søpla -")
     if valg == "A":
-        rom_shank2()
+        if chapter_2 == True:
+            chapter2_2_5AF
+        else:
+            rom_shank2()
     if valg == "B":
         print("du leter i søpla")
         tilfeldigsøppel = random.randint(1, 6)
@@ -232,34 +239,52 @@ def rom_shank_løp():
             print("hp:", hp)
             print("Han catcher opp med deg dere går i fight igjen")
             sjekkliv()
-            rom_shank2()
+            if chapter_2 == True:
+                chapter2_2_5AF()
+            else:
+                rom_shank2()
         if tilfeldigsøppel == 2:
             print("du fant en hel burger så heldig det vi ikke prater om er den brune hundeshiten som ligger oppa den")
             hp+=60
             sjekkliv()
-            rom_shank2()
+            if chapter_2 == True:
+                chapter2_2_5AF()
+            else:
+                rom_shank2()
         if tilfeldigsøppel == 3:
             print ("du fant en pakke med pølse. Pølsen er godt inpakket. ")
             print("Du tenker er jeg virkelig så desperat, nei det er du ikke")
             print ("hp", hp)
             sjekkliv()
-            rom_shank2()
+            if chapter_2 == True:
+                chapter2_2_5AF()
+            else:
+                rom_shank2()
         if tilfeldigsøppel == 4:
             print("Du ser ikke engang hva det er du bare spiser det")
             randomfoodbuff = random.randint(-100, 100)
             hp -=randomfoodbuff
             sjekkliv()
-            rom_shank2()
+            if chapter_2 == True:
+                chapter2_2_5AF()
+            else:
+                rom_shank2()
         if tilfeldigsøppel == 5:
             print("Du fant en side fra den berømte boken. Sun Tzu The Art Of War. På siden står det “Move swift as the Wind and closely-formed as the Wood. Attack like the Fire and be still as the Mountain.”")
             The_Art_Of_War_1 = True
             sjekkliv()
-            rom_shank2()
+            if chapter_2 == True:
+                chapter2_2_5AF()
+            else:
+                rom_shank2()
         if tilfeldigsøppel == 6:
             print("Du fant et skudd. Ser ut som den passer til glocken din. ")
             Glock = True
             sjekkliv()
-            rom_shank2()
+            if chapter_2 == True:
+                chapter2_2_5AF()
+            else:
+                rom_shank2()
 
 def chapter2():
     chapter_2 = True
@@ -344,7 +369,7 @@ def chapter2_1_5A():
         chapter2_2_5AF()
     if valg == "B":
         BigFyrBaseballFight = True
-        print("Du løper mot den tynne mannen. De tror han er nok til å ta deg alene. Så han fighter solo mens de andre ser på")
+        print("Du løper mot baseballduden. De tror han er nok til å ta deg alene. Så han fighter solo mens de andre ser på")
         chapter2_2_5AF()
 def chapter2_2_5AF():
     Knekk = " "
@@ -408,7 +433,7 @@ def chapter2_2_5AF():
         if TynnShankerFight == True:
             TynnShanker -= tilfeldig_attack
             enemy_attack = random.randint(10, 30)
-        print("Shankeren har ", TynnShanker, "hp")
+        print("Den tynne shankeren har ", TynnShanker, "hp")
         if BigFyrBaseballFight == True:
             Big_Fyr_Baseball -= tilfeldig_attack
             enemy_attack = random.randint(20, 40)
@@ -443,19 +468,24 @@ def chapter2_2_5AF():
         sjekkAverageCrowbar()
     
         chapter2_2_5AF()
+    if valg == "B":
+        rom_shank_løp()
+        
 def chapter2_3T():
     global hp
     print("Du drepte Shankeren. De to andre står der i shock. Men snapper ut av det. Forvirrheten deres blir raskt om til sinne.")
     print("Han average fyren med crowbar tar opp en glock")
     valg = input("Hva gjør du? A: Dodge B: Finn cover C: Løp D:")
     if valg == "A":
-     print("Han holder pistolen mot deg. Han regnet med at du skulle snu rundt å løpe. Men du står der klar for å dukke unda rett før han skyter. Du prøver å lese bodylanguagen hans:")
-     print("Han legger fingeren sin på triggern. Han PRESSER INN")
-     valg = input("A: Dodge B: Stå i ro")
-     if valg == "A":
+     chapter2_dodge()
+def chapter2_dodge():
+    print("Han holder pistolen mot deg. Han regnet med at du skulle snu rundt å løpe. Men du står der klar for å dukke unda rett før han skyter. Du prøver å lese bodylanguagen hans:")
+    print("Han legger fingeren sin på triggern. Han PRESSER INN")
+    valg = input("A: Dodge B: Stå i ro")
+    if valg == "A":
         print("Du hiver deg på bakken. Men han skøyt ikke når du trodde han ville. Du prøver å røyse deg men... Du hører et høyt BANG. Du driver å svimer av. Du blir plukket opp og hivet i søppla der du blør ut")
-        hp = 0
-        sjekkliv()
+    hp = 0
+    sjekkliv()
     if valg == "B":
         chapter2_3_2T()
 def chapter2_3_2T():
