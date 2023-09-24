@@ -21,6 +21,7 @@ AverageCrowbarFight = False
 Gunfight = False
 Sun_Tzu_The_Art_Of_War_2 = False
 rage = 0
+Asking = False
 def game_over():
     print("Du døde")
     exit()
@@ -49,13 +50,20 @@ def sjekkAverageCrowbar():
         chapter2_3A()
 
 def velgchapter():
-    chaptervelger = input("Velg chapter. 1 = Chapter 1. 2 = chapter 2 -")
+    asking = True
+    while asking == True:
+        chaptervelger = input("Velg chapter. 1 = Chapter 1. 2 = chapter 2 -")
+        if chaptervelger == "A" or chaptervelger == "B":
+            asking = False
+        else:
+            print(" Du skrev feil. Prøv igjen")
     if chaptervelger == "1" or chaptervelger == "A":
         print("-Chapter1-")
         rom_1()
     elif chaptervelger == "2" or chaptervelger == "B":
         print("-Chapter2-")
         chapter2()
+    
 
 
 
@@ -581,7 +589,11 @@ def Søppelspark():
             valg = input("Hva gjør du? A: Lar han leve. B: Ikke la han leve")
             if valg == "A":
                 print("Du lar han leve. Og dere alle stopper å fighte. Siden dere alle har sett breaking bad.")
-                print("Du går videre i THE DARK ALLEYWAY")
+                Duvant()
+            if valg == "B":
+                print("Bro har sett breaking bad kordan våga du")
+
+
 
 
 
