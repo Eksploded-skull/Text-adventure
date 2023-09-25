@@ -74,9 +74,8 @@ def rom_1():
     print("Du er i en stor sjukk by. Den hete London. Du e på vei til butikken.\
 Det e kveld og du ser en fyr med svart hetegenser i en dark alleyway som signaliserer at\
 du burde følge etter han du har 3 valg:")
-    asking = True
-    while asking == True:
-     valg = input(" A: Du kan gå videre. B: Du kan følge etter han C: Du kan ta opp glocken og blaste han i hode -")
+
+    valg = input(" A: Du kan gå videre. B: Du kan følge etter han C: Du kan ta opp glocken og blaste han i hode -")
     if valg == "A":
         print("Lame")
         exit()
@@ -226,10 +225,11 @@ def rom_shank_løp():
     valg = input("Hva vil du gjøre, A: løpe tilbake, B: leite i søpla -")
     if valg == "A":
         if chapter_2 == True:
-            chapter2_2_5AF
+            chapter2_2_5AF()
         else:
             rom_shank2()
     if valg == "B":
+
         print("du leter i søpla")
         tilfeldigsøppel = random.randint(1, 6)
         if tilfeldigsøppel == 1:
@@ -241,7 +241,7 @@ def rom_shank_løp():
             sjekkliv()
             if chapter_2 == True:
                 chapter2_2_5AF()
-            else:
+            if chapter_2 == False:
                 rom_shank2()
         if tilfeldigsøppel == 2:
             print("du fant en hel burger så heldig det vi ikke prater om er den brune hundeshiten som ligger oppa den")
@@ -249,7 +249,7 @@ def rom_shank_løp():
             sjekkliv()
             if chapter_2 == True:
                 chapter2_2_5AF()
-            else:
+            if chapter_2 == False:
                 rom_shank2()
         if tilfeldigsøppel == 3:
             print ("du fant en pakke med pølse. Pølsen er godt inpakket. ")
@@ -258,7 +258,7 @@ def rom_shank_løp():
             sjekkliv()
             if chapter_2 == True:
                 chapter2_2_5AF()
-            else:
+            if chapter_2 == False:
                 rom_shank2()
         if tilfeldigsøppel == 4:
             print("Du ser ikke engang hva det er du bare spiser det")
@@ -267,7 +267,7 @@ def rom_shank_løp():
             sjekkliv()
             if chapter_2 == True:
                 chapter2_2_5AF()
-            else:
+            if chapter_2 == False:
                 rom_shank2()
         if tilfeldigsøppel == 5:
             print("Du fant en side fra den berømte boken. Sun Tzu The Art Of War. På siden står det “Move swift as the Wind and closely-formed as the Wood. Attack like the Fire and be still as the Mountain.”")
@@ -275,7 +275,7 @@ def rom_shank_løp():
             sjekkliv()
             if chapter_2 == True:
                 chapter2_2_5AF()
-            else:
+            if chapter_2 == False:
                 rom_shank2()
         if tilfeldigsøppel == 6:
             print("Du fant et skudd. Ser ut som den passer til glocken din. ")
@@ -283,10 +283,11 @@ def rom_shank_løp():
             sjekkliv()
             if chapter_2 == True:
                 chapter2_2_5AF()
-            else:
+            if chapter_2 == False:
                 rom_shank2()
 
 def chapter2():
+    global chapter_2
     chapter_2 = True
     TynnShanker = 100
     AverageCrowbar = 200
@@ -302,7 +303,7 @@ def chapter2():
     if valg == "C":
         chapter2_1C()
     if valg == "D":
-        print("Ingen komemr men du ble funnet")
+        print("Ingen kommer men du ble funnet")
         chapter2_1A()
 
     
