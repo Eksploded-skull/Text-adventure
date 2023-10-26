@@ -599,7 +599,6 @@ def chapter2_4Søppel2():
 
 
 def Søppelspark():
-    rage = 10
     if rage < 5:
         print("Du prøver å sparke den opp men det går ikke")
         print("Du prøver å sparke den opp i cirka 5 minutter uten lykke. ")
